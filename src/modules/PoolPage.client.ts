@@ -59,12 +59,12 @@ const getMainChartOptions = () => {
 		},
 		series: [
 			{
-				name: 'ROI',
+				name: 'Revenue',
 				data: [6356, 6218, 6156, 6526, 6356, 6256, 6056],
 				color: '#1A56DB',
 			},
 			{
-				name: 'ROI (previous period)',
+				name: 'Revenue (previous period)',
 				data: [6556, 6725, 6424, 6356, 6586, 6756, 6616],
 				color: '#FDBA8C',
 			},
@@ -582,8 +582,8 @@ const getTrafficChannelsChartOptions = () => {
 	}
 
 	return {
-		series: [15, 60, 25],
-		labels: ['Royal Foxes', 'King Fox', 'BTC Fools'],
+		series: [70, 5, 25],
+		labels: ['Desktop', 'Tablet', 'Phone'],
 		colors: ['#16BDCA', '#FDBA8C', '#1A56DB'],
 		chart: {
 			type: 'donut',

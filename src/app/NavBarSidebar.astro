@@ -43,33 +43,38 @@ import SearchInput from '../components/SearchInput.astro';
 							clip-rule="evenodd"></path></svg
 					>
 				</button>
+
+
+				
+
+
 				<a href="/" class="flex ml-2 md:mr-24">
 					<img
-						src={asset('images/logo.svg')}
+						src={('https://uncharted.network/assets/logos/svg/ufox-logo-white.svg')}
 						class="h-8 mr-3"
-						alt="FlowBite Logo"
+						alt="Uncharted Fox Logo"
 					/>
 					<span
 						class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
-						>Flowbite</span
+						>Uncharted Fox</span
 					>
 				</a>
 
-				<SearchInput />
+				<!-- <SearchInput /> -->
 			</div>
 
 			<div class="flex items-center">
-				<GitHubButton repository="themesberg/flowbite-astro-admin-dashboard" />
+				<!-- <GitHubButton repository="themesberg/flowbite-astro-admin-dashboard" /> -->
 
 				<!-- Search mobile -->
-				<button
+				<!-- <button
 					id="toggleSidebarMobileSearch"
 					type="button"
 					class="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
 				>
-					<span class="sr-only">Search</span>
+					<span class="sr-only">Search</span> -->
 					<!-- Search icon -->
-					<svg
+					<!-- <svg
 						class="w-6 h-6"
 						fill="currentColor"
 						viewBox="0 0 20 20"
@@ -79,7 +84,25 @@ import SearchInput from '../components/SearchInput.astro';
 							d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
 							clip-rule="evenodd"></path></svg
 					>
+				</button> -->
+
+				<button
+					type="submit"
+					class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+				>
+					<svg
+						class="w-5 h-5 mr-2 -ml-1"
+						fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg" 
+						viewBox="0 0 20 20">
+						<path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z"
+		
+						></path></svg
+					>
+
+					Earn $90
 				</button>
+
 
 				<!-- Dropdown menu -->
 				<div
