@@ -2,6 +2,7 @@
 import { asset, url } from '../lib/data.js';
 const url = new URL(Astro.request.url);
 const email = url.searchParams.get('email');
+const code = url.searchParams.get('code');
 ---
 
 <div
@@ -32,7 +33,10 @@ const email = url.searchParams.get('email');
 			<p class="text-base font-normal text-gray-500 dark:text-gray-400">
 				Better to be safe than sorry.
 			</p>
-			<form class="mt-8 space-y-6" action="#">
+			<form class="mt-8 space-y-6" action="/api/auth/resetpassword" method="post">
+				<!-- input fields for the new password -->
+				<input type="hidden" name="code" value={code} />
+				<!-- rest of your form -->
 				<div>
 					<label
 						for="profile-lock"
@@ -65,28 +69,27 @@ const email = url.searchParams.get('email');
 					
 				</div>
 				<div>
-					<a href="/authentication/sign-in">
-				<button
-					type="submit"
-					class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-				>
-					<svg
-						class="w-5 h-5 mr-2 -ml-1"
-						fill="currentColor"
-						viewBox="0 0 18 15"
-						xmlns="http://www.w3.org/2000/svg"
-						><path
-						stroke="currentColor" 
-						stroke-linecap="round" 
-						stroke-linejoin="round" 
-						stroke-width="2" 
-						d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3"
-						></path></svg
+					<a
+						href="/authentication/sign-in"
+						class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
 					>
-					Login
-				</button>
-			</a>
-			</div>
+						<svg
+							class="w-5 h-5 mr-2 -ml-1"
+							fill="currentColor"
+							viewBox="0 0 18 15"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke="currentColor" 
+								stroke-linecap="round" 
+								stroke-linejoin="round" 
+								stroke-width="2" 
+								d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3"
+							></path>
+						</svg>
+						Login
+					</a>
+				</div>
 			</form>
 		</div>
 	</div>

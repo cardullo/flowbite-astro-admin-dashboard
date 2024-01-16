@@ -1,5 +1,6 @@
 ---
 import { asset, url } from '../lib/data.js';
+import ColorModeSwitcher from '../components/ColorModeSwitcher.astro';
 ---
 
 <nav
@@ -9,15 +10,27 @@ import { asset, url } from '../lib/data.js';
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
 				<a href={url()} class="flex mr-4">
-					<img
+					<!-- <img
 						src={asset('images/logo.svg')}
 						class="h-8 mr-3"
 						alt="Flowbite Logo"
-					/>
-					<span
-						class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-						>Flowbite</span
-					>
+					/> -->
+
+
+					<a href="/" class="flex ml-2 md:mr-24">
+						<img
+							src={('https://uncharted.network/assets/logos/svg/ufox-logo-white.svg')}
+							class="h-8 mr-3"
+							alt="Uncharted Fox Logo"
+						/>
+						<span
+							class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
+							>Uncharted Fox</span
+						>
+					</a>
+
+
+				
 				</a>
 				<div class="hidden sm:flex sm:ml-6">
 					<ul class="flex space-x-8">
@@ -32,14 +45,14 @@ import { asset, url } from '../lib/data.js';
 							<a
 								href="#"
 								class="text-sm font-medium text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-primary-500"
-								aria-current="page">Team</a
+								aria-current="page">App</a
 							>
 						</li>
 						<li>
 							<a
 								href="#"
 								class="text-sm font-medium text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-primary-500"
-								aria-current="page">Pricing</a
+								aria-current="page">FAQ</a
 							>
 						</li>
 						<li>
@@ -53,7 +66,37 @@ import { asset, url } from '../lib/data.js';
 				</div>
 			</div>
 
-			<div>
+			
+
+			<div class="flex items-center justify-between space-x-4">
+
+				<a
+					href="#"
+					class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+				>
+				<svg 
+					class="w-5 h-5 mr-2 -ml-1"
+					fill="none"
+					stroke="currentColor"
+					aria-hidden="true" 
+					xmlns="http://www.w3.org/2000/svg" 
+					fill="none" 
+					viewBox="0 0 -22 30">
+
+					<path 
+						stroke="currentColor" 
+						stroke-linecap="round" 
+						stroke-linejoin="round" 
+						stroke-width="2" 
+						d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+						/>
+					</svg>
+					Dashboard
+				</a>
+
+
+		
+
 				<a
 					href="#"
 					class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -107,7 +150,14 @@ import { asset, url } from '../lib/data.js';
 							clip-rule="evenodd"></path>
 					</svg>
 				</button>
+
+				<div>
+					<ColorModeSwitcher />
+					</div>
+
 			</div>
+
+			
 		</div>
 	</div>
 	<!-- Mobile menu -->
