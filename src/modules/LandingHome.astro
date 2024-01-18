@@ -29,14 +29,15 @@ import PoolInterestsEvaluation from '../components/PoolInterestsEvaluation.astro
         Your <a rel="noopener nofollow" href="https://astro.build" class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-violet-800 dark:from-pink-300 dark:to-violet-700 no-underline">Capital</a> With
         <br />Our <a rel="noopener nofollow" href="https://flowbite.com" class="font-bold text-blue-600 dark:text-blue-500 no-underline">Skills</a>
     </h2>
-    <p class="text-xl lg:text-2xl">
+    <p class="text-xl lg:text-1xl">
         We handle your capital while you receive up to 90% of the Profit.
     </p>
 </div>
 	<!-- Right Div -->
-	<div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0">
+	<!-- <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0"> -->
+	<div class="p-4 mb-4  xl:mb-0">
 			<div class="flex justify-center w-full">
-					<div set:html={AstroLogo} class="svg-inline w-16 h-16 text-violet-700 dark:text-violet-100" />
+				<img src="https://uncharted.network/assets/images/home-chart.png" class="w-200 h-200" alt="Uncharted Fox" />
 			</div>
 	</div>
 </div>
@@ -136,8 +137,25 @@ import PoolInterestsEvaluation from '../components/PoolInterestsEvaluation.astro
 
 		<div class="md:col-span-10 p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0 flex justify-center items-center">
 			<button class="flex items-center px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
-					<svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+				
+				<svg 
+				class="w-5 h-5 mr-2 -ml-1"
+				fill="none"
+				stroke="currentColor"
+				aria-hidden="true" 
+				xmlns="http://www.w3.org/2000/svg" 
+				fill="none" 
+				viewBox="0 0 -22 30">
+
+				<path 
+					stroke="currentColor" 
+					stroke-linecap="round" 
+					stroke-linejoin="round" 
+					stroke-width="2" 
+					d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+					/>
+				</svg>
+
 					</svg>
 					Open Account
 			</button>
