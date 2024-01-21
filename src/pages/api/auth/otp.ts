@@ -6,7 +6,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const email = formData.get("email")?.toString();
 
   if (!email) {
-    return redirect(`/authentication/forgot-password?error=${encodeURIComponent("Email is required")}`);
+    return redirect(`/app/authentication/forgot-password?error=${encodeURIComponent("Email is required")}`);
   }
 
   // const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -20,10 +20,10 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (error) {
     const errorMessage = error.message;
-    return redirect(`/authentication/forgot-password?error=${encodeURIComponent(errorMessage)}`);
+    return redirect(`/app/authentication/forgot-password?error=${encodeURIComponent(errorMessage)}`);
   }
 
-  return redirect(`/authentication/forgot-password?message=${encodeURIComponent("Check your email, we have sent you a message with the Magic Link.")}`);
+  return redirect(`/app/authentication/forgot-password?message=${encodeURIComponent("Check your email, we have sent you a message with the Magic Link.")}`);
 }
 
 

@@ -8,11 +8,11 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 	const confirmPassword = formData.get("confirm-password")?.toString();
 
 	if (!email || !password || !confirmPassword) {
-		return redirect(`/authentication/sign-up?error=${encodeURIComponent("Email, password and confirm password are required")}`);
+		return redirect(`/app/authentication/sign-up?error=${encodeURIComponent("Email, password and confirm password are required")}`);
 	}
 
 	if (password !== confirmPassword) {
-		return redirect(`/authentication/sign-up?error=${encodeURIComponent("Passwords do not match")}`);
+		return redirect(`/app/authentication/sign-up?error=${encodeURIComponent("Passwords do not match")}`);
 	}
 
 	const { error } = await supabase.auth.signUp({
@@ -21,8 +21,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 	});
 
 	if (error) {
-		return redirect(`/authentication/sign-up?error=${encodeURIComponent(error.message)}`);
+		return redirect(`/app/authentication/sign-up?error=${encodeURIComponent(error.message)}`);
 	}
-	return redirect(`/authentication/verify-your-account?email=${encodeURIComponent(email)}`);
+	return redirect(`/app/authentication/verify-your-account?email=${encodeURIComponent(email)}`);
 }
 

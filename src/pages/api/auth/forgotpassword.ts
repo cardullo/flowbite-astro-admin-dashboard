@@ -6,11 +6,11 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const email = formData.get("email")?.toString();
 
   if (!email) {
-    return redirect(`/authentication/forgot-password?error=${encodeURIComponent("Email is required")}`);
+    return redirect(`/app/authentication/forgot-password?error=${encodeURIComponent("Email is required")}`);
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-		redirectTo: 'http://localhost:4321/authentication/reset-password', // updated URL
+		redirectTo: 'http://localhost:4321/app/authentication/reset-password', // updated URL
 	});
 
 	// This version send an OTP log-in, allowing the user to log-in without password.
@@ -20,10 +20,10 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (error) {
     const errorMessage = error.message;
-    return redirect(`/authentication/forgot-password?error=${encodeURIComponent(errorMessage)}`);
+    return redirect(`/app/authentication/forgot-password?error=${encodeURIComponent(errorMessage)}`);
   }
 
-  return redirect(`/authentication/forgot-password?message=${encodeURIComponent("Check your email, we have sent you a message to reset your password.")}`);
+  return redirect(`/app/authentication/forgot-password?message=${encodeURIComponent("Check your email, we have sent you a message to reset your password.")}`);
 }
 
 

@@ -19,14 +19,14 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     });
 
     if (error) {
-      return redirect(`/authentication/sign-in?error=${encodeURIComponent(error.message)}`);
+      return redirect(`/app/authentication/sign-in?error=${encodeURIComponent(error.message)}`);
     }
 
     return redirect(data.url);
   }
 
   if (!email || !password) {
-    return redirect(`/authentication/sign-in?error=${encodeURIComponent("Email and password are required")}`);
+    return redirect(`/app/authentication/sign-in?error=${encodeURIComponent("Email and password are required")}`);
   }
 
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -35,7 +35,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   });
 
   if (error) {
-    return redirect(`/authentication/sign-in?error=${encodeURIComponent(error.message)}`);
+    return redirect(`/app/authentication/sign-in?error=${encodeURIComponent(error.message)}`);
   }
 
   const { access_token, refresh_token } = data.session;
@@ -50,5 +50,5 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     secure: true,
   });
 
-  return redirect("/dashboard");
+  return redirect("/app/dashboard");
 };

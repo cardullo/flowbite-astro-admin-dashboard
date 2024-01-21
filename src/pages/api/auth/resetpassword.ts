@@ -17,12 +17,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   // }
 
 	if (!newPassword || !confirmPassword) {
-    return redirect(`/authentication/reset-password?error=${encodeURIComponent("Missing required parameters")}`);
+    return redirect(`/app/authentication/reset-password?error=${encodeURIComponent("Missing required parameters")}`);
   }
 
 
   if (newPassword !== confirmPassword) {
-    return redirect(`/authentication/reset-password?error=${encodeURIComponent("Password and confirmation password do not match")}&code=${encodeURIComponent(code)}`);
+    return redirect(`/app/authentication/reset-password?error=${encodeURIComponent("Password and confirmation password do not match")}&code=${encodeURIComponent(code)}`);
   }
 
   // Update the user's password
@@ -33,8 +33,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 	// const { data, error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: 'https://example.com/update-password', })
 
   if (updateError) {
-    return redirect(`/authentication/reset-password?error=${encodeURIComponent(updateError.message)}`);
+    return redirect(`/app/authentication/reset-password?error=${encodeURIComponent(updateError.message)}`);
   }
 
-  return redirect(`/authentication/reset-password?message=${encodeURIComponent("Password updated successfully!")}`);
+  return redirect(`/app/authentication/reset-password?message=${encodeURIComponent("Password updated successfully!")}`);
 }
