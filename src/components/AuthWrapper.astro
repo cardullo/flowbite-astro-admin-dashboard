@@ -1,5 +1,6 @@
 ---
-import { useAuth } from 'auth-astro'
+import { useAuth } from '@auth/auth'
+
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')
@@ -7,32 +8,34 @@ const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export default function AuthWrapper({ children }) {
-  const auth = useAuth()
+  
+  const auth = useAuth();
 
   if (auth.loading) {
-    return <div>"Loading..."</div>
+    return <div>"Loading..."</div>;
   }
 
   if (!auth.loggedIn) {
-    window.location.href = '/login'
+    window.location.href = '/login';
   }
 
-  const { user } = auth
+  const { user } = auth;
 
   const { data, error } = await supabase
     .from('users')
     .select('id')
-    .eq('id', user.id)
+    .eq('id', user.id);
 
   if (error) {
-    console.error(error)
-    return <div>Error</div>
+    console.error(error);
+    return <div>Error</div>;
   }
 
   if (!data || data.length === 0) {
-    await supabase.from('users').insert({ id: user.id })
+    await supabase.from('users').insert({ id: user.id });
   }
 
-  return children
+  return children;
 }
+
 ---
