@@ -1,6 +1,12 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "esModuleInterop": true
+    // ... other options
   }
 }
