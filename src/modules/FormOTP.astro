@@ -1,5 +1,6 @@
 ---
 import { asset, url } from '../lib/data.js';
+import LogoSwitchAuth from "../components/LogoSwitchAuth.astro";
 const url = new URL(Astro.request.url);
 const error = url.searchParams.get('error');
 const message = url.searchParams.get('message');
@@ -8,13 +9,17 @@ const message = url.searchParams.get('message');
 <div
 	class="w-full flex flex-col items-center justify-center px-6 pt-8 mx-auto pt:mt-0 dark:bg-gray-900"
 >
-	<a
+
+<LogoSwitchAuth />
+
+
+	<!-- <a
 		href="#"
 		class="flex items-center justify-center mb-8 text-2xl font-semibold lg:mb-10 dark:text-white"
 	>
 		<img src={asset('images/logo.svg')} alt="FlowBite Logo" class="mr-4 h-11" />
 		<span>Flowbite</span>
-	</a>
+	</a> -->
 	<!-- Card -->
 	<div
 		class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800"
@@ -58,7 +63,7 @@ const message = url.searchParams.get('message');
 							for="remember"
 							class="font-medium text-gray-900 dark:text-white"
 							>I accept the <a
-								href="#"
+								href="/pages/terms-and-conditions"
 								class="text-primary-700 hover:underline dark:text-primary-500"
 								>Terms and Conditions</a
 							></label

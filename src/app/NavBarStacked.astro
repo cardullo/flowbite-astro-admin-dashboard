@@ -1,6 +1,7 @@
 ---
 import { asset, url } from '../lib/data.js';
 import ColorModeSwitcher from '../components/ColorModeSwitcher.astro';
+import LogoSwitch from "../components/LogoSwitch.astro";
 ---
 
 <nav
@@ -9,6 +10,10 @@ import ColorModeSwitcher from '../components/ColorModeSwitcher.astro';
 	<div class="container py-3 mx-auto">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
+				
+			
+
+
 				<a href={url()} class="flex mr-4">
 					<!-- <img
 						src={asset('images/logo.svg')}
@@ -16,7 +21,7 @@ import ColorModeSwitcher from '../components/ColorModeSwitcher.astro';
 						alt="Flowbite Logo"
 					/> -->
 
-
+					<LogoSwitch />
 					<!-- <a href="/" class="flex ml-2 md:mr-24">
 						<img
 							src={('https://uncharted.network/assets/logos/svg/ufox-logo-white.svg')}
@@ -27,21 +32,27 @@ import ColorModeSwitcher from '../components/ColorModeSwitcher.astro';
 							class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
 							>Uncharted Fox</span
 						>
-					</a> -->
+					</a>
+
+					 -->
 
 
+					
+
+<!-- 
 					<a href="/" class="flex ml-2 md:mr-24">
 						<img
-							src={('https://uncharted.network/assets/logos/svg/uFox-Logo-Dark.svg')}
+							src={('https://uncharted.network/assets/logos/svg/ufox-logo-white.svg')}
 							class="h-8 mr-3"
 							alt="Uncharted Fox Logo"
-							class="dark:src-'https://uncharted.network/assets/logos/svg/uFox-Logo-Dark.svg'"
+							dark:src='https://uncharted.network/assets/logos/svg/uFox-Logo-Dark.svg'
 						/>
 						<span
 							class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
 							>Uncharted Fox</span
 						>
-					</a>
+					</a> -->
+					
 					
 
 					

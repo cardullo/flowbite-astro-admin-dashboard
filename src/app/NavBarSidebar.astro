@@ -2,7 +2,7 @@
 /* eslint max-lines: 'off' */
 
 import { asset } from '../lib/data.js';
-
+import LogoSwitch from "../components/LogoSwitch.astro";
 import ColorModeSwitcher from '../components/ColorModeSwitcher.astro';
 import GitHubButton from '../components/GitHubButton.astro';
 import SearchInput from '../components/SearchInput.astro';
@@ -49,9 +49,9 @@ const message = url.searchParams.get('message');
 
 
 				
+				<LogoSwitch />
 
-
-				<a href="/" class="flex ml-2 md:mr-24">
+				<!-- <a href="/" class="flex ml-2 md:mr-24">
 					<img
 						src={('https://uncharted.network/assets/logos/svg/ufox-logo-white.svg')}
 						class="h-8 mr-3"
@@ -61,7 +61,7 @@ const message = url.searchParams.get('message');
 						class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
 						>Uncharted Fox</span
 					>
-				</a>
+				</a> -->
 
 				<!-- <SearchInput /> -->
 			</div>
@@ -660,13 +660,13 @@ const message = url.searchParams.get('message');
 					>
 						<div class="px-4 py-3" role="none">
 							<p class="text-sm text-gray-900 dark:text-white" role="none">
-								Neil Sims
+								Ashley Morrone
 							</p>
 							<p
 								class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
 								role="none"
 							>
-								neil.sims@flowbite.com
+							ashley.orrone@uncharted.network
 							</p>
 						</div>
 						<ul class="py-1" role="none">

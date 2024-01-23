@@ -1,48 +1,35 @@
 ---
 import Code from 'astro/components/Code.astro';
-
-// import Confettis from '../components/ConfettiLauncher.astro.jsx';
-
 import AstroLogo from '../assets/astro-icon.svg?raw';
 import FlowbiteLogo from '../assets/flowbite-logo.svg?raw';
-
+import PoolInterestsEvaluation from '../components/PoolInterestsEvaluation.astro';
 import * as readMe from '../../README.md';
 import { SITE_TITLE } from '../app/constants.js';
-
-import PoolInterestsEvaluation from '../components/PoolInterestsEvaluation.astro';
 ---
 
-<div
-	class="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 text-slate-800 dark:text-slate-100 mb-20 p-4 lg:p-16 shadow-xl shadow-slate-200 dark:shadow-slate-900"
->
-	
+<div class=" from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 text-slate-800 dark:text-slate-100 mb-20 p-4 lg:p-16 shadow-xl shadow-slate-200 dark:shadow-slate-900">
+
 
 
 <!-- header -->
-
-
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 	<!-- Left Div -->
-	<!-- <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0"> -->
 	<div class="p-4 mb-4 xl:mb-0">
-		<!-- Empower Your Wealth with Our Expertise -->
-    <h2 class="text-3xl lg:text-6xl dark:text-slate-200 text-slate-600 leading-tight mb-4">
+		<h2 class="text-3xl lg:text-6xl dark:text-slate-200 text-slate-600 leading-tight mb-4">
 			Empower Your <a rel="noopener nofollow" href="https://astro.build" class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-violet-800 dark:from-pink-300 dark:to-violet-700 no-underline">Wealth</a> With
-        <br />Our <a rel="noopener nofollow" href="https://flowbite.com" class="font-bold text-blue-600 dark:text-blue-500 no-underline">Expertise</a>
-    </h2>
-    <p class="text-xl lg:text-1xl">
+			<br />Our <a rel="noopener nofollow" href="https://flowbite.com" class="font-bold text-blue-600 dark:text-blue-500 no-underline">Expertise</a>
+		</h2>
+		<p class="text-xl lg:text-1xl">
 			Let uFox AI manage your capital while you reap up to 90% in profits.
-    </p>
-</div>
+		</p>
+	</div>
 	<!-- Right Div -->
-	<!-- <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0"> -->
-	<div class="p-4 mb-4  xl:mb-0">
+		<div class="p-4 mb-4  xl:mb-0">
 			<div class="flex justify-center w-full">
 				<img src="https://uncharted.network/assets/images/home-chart.png" class="w-200 h-200" alt="Uncharted Fox" />
 			</div>
 	</div>
 </div>
-
 <!-- end header  -->
 
 
@@ -170,9 +157,7 @@ import PoolInterestsEvaluation from '../components/PoolInterestsEvaluation.astro
 <!-- pool end -->
 </div>
 
-<script>
-	import './DashBoardInvestors.client.js';
-</script>
+
 
 <style is:global>
 	/* chart styles */
@@ -207,18 +192,3 @@ import PoolInterestsEvaluation from '../components/PoolInterestsEvaluation.astro
 }
 
 </style>
-
-
-
-<!-- 
-<style>
-	/* Override in Markdown H1 title */
-	.readme :global(h1:nth-of-type(2)) {
-		display: none;
-	}
-
-	.svg-inline :global(svg) {
-		height: 100%;
-		width: 100%;
-	}
-</style> -->
