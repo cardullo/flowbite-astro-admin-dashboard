@@ -18,7 +18,7 @@ const generateNonce = () => crypto.randomBytes(16).toString('base64');
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.CI ? 'https://themesberg.github.io' : `http://localhost:${DEV_PORT}`,
+  site: process.env.CI ? 'https://cardullo.github.io' : `https://ufox.vercel.app`,
   base: process.env.CI ? '/flowbite-astro-admin-dashboard' : undefined,
   output: 'server',
   server: {
