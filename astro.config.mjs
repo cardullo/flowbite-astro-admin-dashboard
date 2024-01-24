@@ -12,7 +12,6 @@ const DEV_PORT = 4321;
 const calculateInlineScriptHash = (scriptContent) =>
   crypto.createHash('sha256').update(scriptContent).digest('base64');
 
-
 // https://astro.build/config
 export default defineConfig({
   site: process.env.CI ? 'https://themesberg.github.io' : `http://localhost:${DEV_PORT}`,
@@ -43,26 +42,18 @@ export default defineConfig({
   },
 
   // Function to inject the CSP header and meta tag
-  async onPageRender({ renderResult }) {
-
+  async onPageRender({ route, renderResult }) {
     // Retrieve the inline script hashes from the cache
     const inlineScriptHashes = this.cache.get('inlineScriptHashes') || [];
 
     // Create the Content-Security-Policy header
     const cspHeader = `script-src 'self' 'unsafe-inline' ${inlineScriptHashes.join(' ')};`;
 
-    // Create a copy of the original renderResult to avoid modifying the parameter directly
-		const modifiedResult = { ...renderResult };
+    // Inject the CSP header into the response
+    renderResult.headers.set('Content-Security-Policy', cspHeader);
 
-		// Add the CSP header to the response
-		modifiedResult.headers.append('Content-Security-Policy', cspHeader);
-
-		// Inject the CSP meta tag into the head
-		const cspMetaTag = `<meta http-equiv="Content-Security-Policy" content="${cspHeader}">`;
-		modifiedResult.html = modifiedResult.html.replace('</head>', `${cspMetaTag}</head>`);
-
-		// Return the modified result
-		return modifiedResult;
-		
+    // Inject the CSP meta tag into the head
+    const cspMetaTag = `<meta http-equiv="Content-Security-Policy" content="${cspHeader}">`;
+    renderResult.html = renderResult.html.replace('</head>', `${cspMetaTag}</head>`);
   },
 });
