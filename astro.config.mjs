@@ -19,7 +19,7 @@ const generateNonce = () => crypto.randomBytes(16).toString('base64');
 // https://astro.build/config
 export default defineConfig({
   site: process.env.CI
-    ? 'https://cardullo.github.io'  // Replace with your Vercel deployment URL
+    ? 'https://ufox.vercel.app'  // Replace with your Vercel deployment URL
     : 'https://ufox.vercel.app',  // Replace with your Vercel deployment URL
 
   base: undefined,  // Set to undefined for the main domain deployment
