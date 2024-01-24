@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-		redirectTo: 'http://localhost:4321/app/authentication/reset-password', // updated URL
+		redirectTo: '/app/authentication/reset-password', // updated URL
 	});
 
 	// This version send an OTP log-in, allowing the user to log-in without password.

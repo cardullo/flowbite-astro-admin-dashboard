@@ -1,5 +1,6 @@
 ---
 import { asset, url } from '../lib/data.js';
+import LogoSwitchAuth from "../components/LogoSwitchAuth.astro";
 const url = new URL(Astro.request.url);
 const email = url.searchParams.get('email');
 const code = url.searchParams.get('code');
@@ -8,13 +9,16 @@ const code = url.searchParams.get('code');
 <div
 	class="w-full flex flex-col items-center justify-center px-6 pt-8 mx-auto pt:mt-0 dark:bg-gray-900"
 >
-	<a
+	<!-- <a
 		href="#"
 		class="flex items-center justify-center mb-8 text-2xl font-semibold lg:mb-10 dark:text-white"
 	>
 		<img src={asset('images/logo.svg')} alt="FlowBite Logo" class="mr-4 h-11" />
 		<span>Flowbite</span>
-	</a>
+	</a> -->
+
+	<LogoSwitchAuth />
+
 	<!-- Card -->
 	<div
 		class="w-full max-w-md bg-white rounded-lg shadow md:mt-0 xl:p-0 dark:bg-gray-800"
