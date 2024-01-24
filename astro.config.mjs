@@ -6,6 +6,7 @@ import tailwind from '@astrojs/tailwind';
 import vercel from "@astrojs/vercel/serverless";
 import crypto from 'crypto';
 
+
 const DEV_PORT = 4321;
 
 // Function to calculate the hash of inline scripts
