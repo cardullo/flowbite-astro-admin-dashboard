@@ -12,6 +12,9 @@ const DEV_PORT = 4321;
 const calculateInlineScriptHash = (scriptContent) =>
   crypto.createHash('sha256').update(scriptContent).digest('base64');
 
+// Function to generate a nonce value
+const generateNonce = () => crypto.randomBytes(16).toString('base64');
+
 // https://astro.build/config
 export default defineConfig({
   site: process.env.CI ? 'https://themesberg.github.io' : `http://localhost:${DEV_PORT}`,
@@ -38,22 +41,32 @@ export default defineConfig({
 
       // Save the inline script hashes for later use
       this.cache.set('inlineScriptHashes', inlineScriptHashes);
+
+      // Save the generated nonce for later use
+      this.cache.set('nonceValue', generateNonce());
     },
   },
 
   // Function to inject the CSP header and meta tag
-  async onPageRender({ route, renderResult }) {
-    // Retrieve the inline script hashes from the cache
+  async onPageRender({ renderResult }) {
+    // Retrieve the inline script hashes and nonce from the cache
     const inlineScriptHashes = this.cache.get('inlineScriptHashes') || [];
+    const nonceValue = this.cache.get('nonceValue') || '';
 
     // Create the Content-Security-Policy header
-    const cspHeader = `script-src 'self' 'unsafe-inline' ${inlineScriptHashes.join(' ')};`;
+    const cspHeader = `script-src 'self' 'unsafe-inline' 'nonce-${nonceValue}' ${inlineScriptHashes.join(' ')};`;
 
-    // Inject the CSP header into the response
-    renderResult.headers.set('Content-Security-Policy', cspHeader);
+    // Create a copy of the original renderResult to avoid modifying the parameter directly
+    const modifiedResult = { ...renderResult };
+
+    // Add the CSP header to the response
+    modifiedResult.headers.append('Content-Security-Policy', cspHeader);
 
     // Inject the CSP meta tag into the head
     const cspMetaTag = `<meta http-equiv="Content-Security-Policy" content="${cspHeader}">`;
-    renderResult.html = renderResult.html.replace('</head>', `${cspMetaTag}</head>`);
+    modifiedResult.html = modifiedResult.html.replace('</head>', `${cspMetaTag}</head>`);
+
+    // Return the modified result
+    return modifiedResult;
   },
 });
