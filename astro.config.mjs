@@ -12,49 +12,23 @@ const DEV_PORT = 4321;
 const calculateInlineScriptHash = (scriptContent) =>
   crypto.createHash('sha256').update(scriptContent).digest('base64');
 
-// Function to generate a nonce value
-const generateNonce = () => crypto.randomBytes(16).toString('base64');
-
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.CI ? 'https://themesberg.github.io' : `http://localhost:${DEV_PORT}`,
-  base: process.env.CI ? '/flowbite-astro-admin-dashboard' : undefined,
-  output: 'server',
-  server: {
-    port: DEV_PORT
-  },
-  integrations: [sitemap(), tailwind()],
-  adapter: vercel(),
-
-  // Build hook to capture inline script hashes
-  hooks: {
-    onEnd() {
-      // Access the built HTML
-      const { contents } = this.dist.read('index.html');
-
-      // Extract inline script contents using a regex
-      const inlineScripts = contents.match(/<script>([\s\S]*?)<\/script>/g) || [];
-      const inlineScriptHashes = inlineScripts.map((script) => {
-        const scriptContent = script.replace(/<script>|<\/script>/g, '').trim();
-        return calculateInlineScriptHash(scriptContent);
-      });
-
-      // Save the inline script hashes for later use
-      this.cache.set('inlineScriptHashes', inlineScriptHashes);
-
-      // Save the generated nonce for later use
-      this.cache.set('nonceValue', generateNonce());
-    },
-  },
+  // ... other configurations
 
   // Function to inject the CSP header and meta tag
   async onPageRender({ renderResult }) {
-    // Retrieve the inline script hashes and nonce from the cache
+    // Retrieve the inline script hashes from the cache
     const inlineScriptHashes = this.cache.get('inlineScriptHashes') || [];
-    const nonceValue = this.cache.get('nonceValue') || '';
+
+    // Calculate the hash of the specific inline script causing the issue
+    const problematicScriptHash = calculateInlineScriptHash('your_inline_script_content');
+
+    // Include the problematic script hash in the array
+    inlineScriptHashes.push(problematicScriptHash);
 
     // Create the Content-Security-Policy header
-    const cspHeader = `script-src 'self' 'unsafe-inline' 'nonce-${nonceValue}' ${inlineScriptHashes.join(' ')};`;
+    const cspHeader = `script-src 'self' 'unsafe-inline' ${inlineScriptHashes.join(' ')};`;
 
     // Create a copy of the original renderResult to avoid modifying the parameter directly
     const modifiedResult = { ...renderResult };
