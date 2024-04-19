@@ -42,7 +42,7 @@
 		"@faker-js/faker": "^7.6.0",
 		"@supabase/supabase-js": "^2.39.3",
 		"apexcharts": "^3.37.2",
-		"astro": "^4.1.2",
+		"astro": "^4.6.3",
 		"cookie": "^0.6.0",
 		"flowbite": "^2.1.1",
 		"flowbite-typography": "^1.0.3",
